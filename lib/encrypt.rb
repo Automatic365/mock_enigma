@@ -55,4 +55,5 @@ class Encrypt
     new_characters = @characters.rotate(rotation)
     new_characters[index].to_s
   end
+
 end

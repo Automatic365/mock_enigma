@@ -45,5 +45,4 @@ class EncryptTest < Minitest::Test
     assert_equal 8, e.encrypt(message).length
   end
 
-
 end
