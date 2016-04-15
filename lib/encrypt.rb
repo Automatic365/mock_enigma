@@ -12,7 +12,7 @@ class Encrypt
     @characters = Character_map.new.character_map
   end
 
-  def get_rotated_char
+  def get_rotated_char#(arg1 = nil, arg2 = nil)
     @rotations = @offset.rotations
   end
 
@@ -41,13 +41,18 @@ class Encrypt
     result_message = ""
     while start < message.length-1 do
       group = message.slice(start, 4)
-      result_message = result_message + get_rotated_char(group[0], @offset.a_rotation)
-      result_message = result_message + get_rotated_char(group[1], @offset.b_rotation)
-      result_message = result_message + get_rotated_char(group[2], @offset.c_rotation)
-      result_message = result_message + get_rotated_char(group[3], @offset.d_rotation)
+      result_message = result_message + new_character(group[0], get_rotated_char[0]) #(group[0], @offset.a_rotation)
+      result_message = result_message + new_character(group[1], get_rotated_char[1]) #(group[1], @offset.b_rotation)
+      result_message = result_message + new_character(group[2], get_rotated_char[2])  #(group[2], @offset.c_rotation)
+      result_message = result_message + new_character(group[3], get_rotated_char[3])  #(group[3], @offset.d_rotation)
       start = start + 4
     end
     result_message
   end
 
+  def new_character(character, rotation)
+    index = @characters.index(character)
+    new_characters = @characters.rotate(rotation)
+    new_characters[index].to_s
+  end
 end

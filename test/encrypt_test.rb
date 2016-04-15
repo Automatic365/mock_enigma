@@ -30,18 +30,19 @@ class EncryptTest < Minitest::Test
   end
 
   def test_word_encrypts_properly_based_on_4_part_rotation
+
     e = Encrypt.new("12345", "130416")
     e.get_rotated_char
     message = "villanova"
-    assert_equal "stuff", e.encrypt(message)
+    assert_equal " 5lxp o7", e.encrypt(message)
   end
 
   def test_input_string_length_equals_output_string_length
-    skip
+
     e = Encrypt.new("12345", "130416")
     e.get_rotated_char
     message = "villanova"
-    assert_equal 9, e.encrypt(message).length
+    assert_equal 8, e.encrypt(message).length
   end
 
 
