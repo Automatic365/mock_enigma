@@ -81,4 +81,5 @@ class Offset
   def rotations
     [a_rotation, b_rotation, c_rotation, d_rotation]
   end
+
 end
